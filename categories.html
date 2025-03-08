@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - My Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="images/2e591051-01c9-40c1-a0b1-f7839fbf73fe.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Không có gì</p>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="categories.html" class="nav-item active"><i class="fas fa-list"></i> CATEGORIES</a></li>
+                    <li><a href="tags.html" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
+                    <li><a href="archives.html" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
+                    <li><a href="about.html" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="#" class="social-link" id="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
+                <a href="https://github.com/truongduc0110" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:example@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="rss.xml" class="social-link" title="RSS Feed"><i class="fas fa-rss"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <a href="index.html" class="header-link">Home</a>
+                    <div class="breadcrumbs">
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="current-page">Categories</span>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="categories-section">
+                    <div class="section-header">
+                        <h1 class="section-title">All Categories</h1>
+                        <p class="section-description">Browse articles by category</p>
+                    </div>
+                    
+                    <div class="categories-grid">
+                        <!-- Machine Learning Category -->
+                        <div class="category-card" id="machine-learning">
+                            <div class="category-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="category-details">
+                                <h2 class="category-title">Machine Learning</h2>
+                                <span class="post-count">12 posts</span>
+                                <p class="category-description">Articles about machine learning algorithms, techniques, and applications.</p>
+                                <a href="categories/machine-learning.html" class="view-posts">View Posts</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Deep Learning Category -->
+                        <div class="category-card" id="deep-learning">
+                            <div class="category-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="category-details">
+                                <h2 class="category-title">Deep Learning</h2>
+                                <span class="post-count">8 posts</span>
+                                <p class="category-description">Explore neural networks, deep learning frameworks, and advanced techniques.</p>
+                                <a href="categories/deep-learning.html" class="view-posts">View Posts</a>
+                            </div>
+                        </div>
+                        
+                        <!-- NLP Category -->
+                        <div class="category-card" id="nlp">
+                            <div class="category-icon">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <div class="category-details">
+                                <h2 class="category-title">Natural Language Processing</h2>
+                                <span class="post-count">5 posts</span>
+                                <p class="category-description">Text analysis, language models, and NLP applications.</p>
+                                <a href="categories/nlp.html" class="view-posts">View Posts</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Computer Vision Category -->
+                        <div class="category-card" id="computer-vision">
+                            <div class="category-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="category-details">
+                                <h2 class="category-title">Computer Vision</h2>
+                                <span class="post-count">4 posts</span>
+                                <p class="category-description">Image processing, object detection, and vision applications.</p>
+                                <a href="categories/computer-vision.html" class="view-posts">View Posts</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Tản Mạn Category -->
+                        <div class="category-card" id="tan-man">
+                            <div class="category-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="category-details">
+                                <h2 class="category-title">Tản Mạn</h2>
+                                <span class="post-count">3 posts</span>
+                                <p class="category-description">Personal thoughts, reflections, and miscellaneous topics.</p>
+                                <a href="categories/tan-man.html" class="view-posts">View Posts</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="footer">
+                <div class="footer-section">
+                    <h3 class="footer-title">Archives</h3>
+                    <ul class="archive-list">
+                        <li><a href="archives.html#feb-2025">February 2025</a> <span>(3)</span></li>
+                        <li><a href="archives.html#jan-2025">January 2025</a> <span>(8)</span></li>
+                        <li><a href="archives.html#dec-2024">December 2024</a> <span>(5)</span></li>
+                        <li><a href="archives.html#nov-2024">November 2024</a> <span>(4)</span></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">About</h3>
+                    <p class="footer-about">My Blog is a personal website focused on Machine Learning, Deep Learning, and AI topics. I share my knowledge, experiences, and insights about the latest technologies.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:example@example.com">example@example.com</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/truongduc0110" target="_blank">truongduc0110</a></li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 My Blog. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

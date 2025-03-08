@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
+        document.body.setAttribute('data-theme', 'dark');
         updateDarkModeIcon(true);
     }
 
@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function(e) {
             e.preventDefault();
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
+            const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
+            document.body.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
             
             // Save preference to localStorage
-            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
             
             // Update icon
-            updateDarkModeIcon(isDarkMode);
+            updateDarkModeIcon(!isDarkMode);
         });
     }
 
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add active class to current page in navigation
     highlightCurrentPage();
+
+    // Initialize category card animations
+    initializeCategoryCards();
 });
 
 // Function to update dark mode icon
@@ -100,65 +103,94 @@ function highlightCurrentPage() {
     });
 }
 
+// Function to initialize category card animations
+function initializeCategoryCards() {
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    categoryCards.forEach(card => {
+        // Add hover animation
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+        });
+
+        // Add click animation
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking on a link
+            if (e.target.tagName.toLowerCase() === 'a') return;
+            
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(-5px)';
+            }, 100);
+        });
+    });
+}
+
 // Add dark mode styles dynamically
 function applyDarkModeStyles() {
     const darkModeStyles = `
-        body.dark-mode {
+        body[data-theme="dark"] {
             background-color: #1a1a1a;
             color: #e0e0e0;
         }
         
-        body.dark-mode .sidebar {
+        body[data-theme="dark"] .sidebar {
             background-color: #252525;
             border-color: #333;
         }
         
-        body.dark-mode .nav-item:hover, 
-        body.dark-mode .nav-item.active {
+        body[data-theme="dark"] .nav-item:hover, 
+        body[data-theme="dark"] .nav-item.active {
             background-color: #333;
         }
         
-        body.dark-mode .post,
-        body.dark-mode .widget {
+        body[data-theme="dark"] .post,
+        body[data-theme="dark"] .widget {
             background-color: #252525;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
         
-        body.dark-mode .post-title a,
-        body.dark-mode .widget-title,
-        body.dark-mode .blog-title {
+        body[data-theme="dark"] .post-title a,
+        body[data-theme="dark"] .widget-title,
+        body[data-theme="dark"] .blog-title {
             color: #e0e0e0;
         }
         
-        body.dark-mode .post-content,
-        body.dark-mode .widget-list li a {
+        body[data-theme="dark"] .post-content,
+        body[data-theme="dark"] .widget-list li a {
             color: #b0b0b0;
         }
         
-        body.dark-mode .tag {
+        body[data-theme="dark"] .tag {
             background-color: #333;
             color: #e0e0e0;
         }
         
-        body.dark-mode .content-header {
+        body[data-theme="dark"] .content-header {
             border-color: #333;
         }
         
-        body.dark-mode .search-input {
+        body[data-theme="dark"] .search-input {
             background-color: #333;
             color: #e0e0e0;
             border-color: #444;
         }
         
-        body.dark-mode a {
+        body[data-theme="dark"] a {
             color: #80b3ff;
         }
         
-        body.dark-mode .social-link {
+        body[data-theme="dark"] .social-link {
             color: #b0b0b0;
         }
         
-        body.dark-mode .social-link:hover {
+        body[data-theme="dark"] .social-link:hover {
             color: #e0e0e0;
         }
     `;

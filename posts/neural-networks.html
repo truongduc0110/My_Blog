@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Recipe for Training Neural Networks - My Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .post-meta span {
+            margin: 0 10px;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #222;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-content code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .post-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post-nav a:hover {
+            text-decoration: underline;
+        }
+        .tip-box {
+            background: #f8f9fa;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> › 
+            <a href="../categories.html">Categories</a> › 
+            <a href="../categories/machine-learning.html">Machine Learning</a> ›
+            <span>Neural Networks</span>
+        </div>
+
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">A Recipe for Training Neural Networks</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> Jan 20, 2025</span>
+                    <span><i class="fas fa-folder"></i> <a href="../categories/machine-learning.html">Machine Learning</a></span>
+                    <span><i class="fas fa-tags"></i> 
+                        <a href="../tags.html#neural-networks">neural networks</a>,
+                        <a href="../tags.html#deep-learning">deep learning</a>,
+                        <a href="../tags.html#training">training</a>
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    Training neural networks effectively requires both theoretical knowledge and practical experience. This post provides a comprehensive guide to training neural networks, from data preparation to model deployment.
+                </p>
+
+                <h2>1. Data Preparation</h2>
+                <p>
+                    The first and most crucial step in training neural networks is preparing your data properly:
+                </p>
+                <pre><code>import numpy as np
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+# Normalize your data
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Split data
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y, test_size=0.2, random_state=42
+)</code></pre>
+
+                <div class="tip-box">
+                    <strong>Pro Tip:</strong> Always normalize your input features to have zero mean and unit variance. This helps achieve faster convergence during training.
+                </div>
+
+                <h2>2. Architecture Design</h2>
+                <p>
+                    Choosing the right architecture is crucial for your model's success. Here's a basic neural network implementation using PyTorch:
+                </p>
+                <pre><code>import torch
+import torch.nn as nn
+
+class NeuralNetwork(nn.Module):
+    def __init__(self, input_size):
+        super().__init__()
+        self.layers = nn.Sequential(
+            nn.Linear(input_size, 128),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, 1)
+        )
+    
+    def forward(self, x):
+        return self.layers(x)</code></pre>
+
+                <h2>3. Loss Function and Optimizer</h2>
+                <p>
+                    Choose appropriate loss functions and optimizers for your task:
+                </p>
+                <pre><code># Define loss function
+criterion = nn.MSELoss()  # for regression
+# or
+criterion = nn.CrossEntropyLoss()  # for classification
+
+# Define optimizer
+optimizer = torch.optim.Adam(
+    model.parameters(),
+    lr=0.001,
+    weight_decay=1e-5
+)</code></pre>
+
+                <div class="warning-box">
+                    <strong>Warning:</strong> Be careful with learning rate selection. Too high might cause divergence, too low might result in slow training.
+                </div>
+
+                <h2>4. Training Loop</h2>
+                <p>
+                    Implement a robust training loop with validation:
+                </p>
+                <pre><code>def train_model(model, train_loader, val_loader, epochs=100):
+    for epoch in range(epochs):
+        # Training phase
+        model.train()
+        for batch_X, batch_y in train_loader:
+            optimizer.zero_grad()
+            outputs = model(batch_X)
+            loss = criterion(outputs, batch_y)
+            loss.backward()
+            optimizer.step()
+        
+        # Validation phase
+        model.eval()
+        with torch.no_grad():
+            val_loss = 0
+            for batch_X, batch_y in val_loader:
+                outputs = model(batch_X)
+                val_loss += criterion(outputs, batch_y)
+            
+        print(f"Epoch {epoch}: val_loss = {val_loss/len(val_loader)}")</code></pre>
+
+                <h2>5. Regularization Techniques</h2>
+                <p>
+                    Implement various regularization techniques to prevent overfitting:
+                </p>
+                <ul>
+                    <li>Dropout</li>
+                    <li>Weight Decay (L2 Regularization)</li>
+                    <li>Early Stopping</li>
+                    <li>Data Augmentation</li>
+                </ul>
+
+                <pre><code># Early Stopping Implementation
+class EarlyStopping:
+    def __init__(self, patience=7, min_delta=0):
+        self.patience = patience
+        self.min_delta = min_delta
+        self.counter = 0
+        self.best_loss = None
+        self.early_stop = False
+    
+    def __call__(self, val_loss):
+        if self.best_loss is None:
+            self.best_loss = val_loss
+        elif val_loss > self.best_loss - self.min_delta:
+            self.counter += 1
+            if self.counter >= self.patience:
+                self.early_stop = True
+        else:
+            self.best_loss = val_loss
+            self.counter = 0</code></pre>
+
+                <h2>6. Monitoring and Debugging</h2>
+                <p>
+                    Use tools like TensorBoard to monitor training progress:
+                </p>
+                <pre><code>from torch.utils.tensorboard import SummaryWriter
+
+writer = SummaryWriter('runs/experiment_1')
+
+# During training
+writer.add_scalar('Loss/train', train_loss, epoch)
+writer.add_scalar('Loss/validation', val_loss, epoch)
+writer.add_scalar('Accuracy', accuracy, epoch)</code></pre>
+
+                <h2>7. Model Evaluation</h2>
+                <p>
+                    Properly evaluate your model using various metrics:
+                </p>
+                <pre><code>from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+
+def evaluate_model(model, test_loader):
+    model.eval()
+    predictions = []
+    actual = []
+    
+    with torch.no_grad():
+        for X, y in test_loader:
+            outputs = model(X)
+            predictions.extend(outputs.argmax(dim=1).numpy())
+            actual.extend(y.numpy())
+    
+    accuracy = accuracy_score(actual, predictions)
+    precision, recall, f1, _ = precision_recall_fscore_support(
+        actual, predictions, average='weighted'
+    )
+    
+    return {
+        'accuracy': accuracy,
+        'precision': precision,
+        'recall': recall,
+        'f1': f1
+    }</code></pre>
+
+                <h2>8. Common Pitfalls to Avoid</h2>
+                <ul>
+                    <li>Not normalizing input data</li>
+                    <li>Using inappropriate learning rates</li>
+                    <li>Overly complex architectures</li>
+                    <li>Insufficient validation</li>
+                    <li>Not handling imbalanced data</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>
+                    Training neural networks is both an art and a science. While this guide provides a solid foundation, remember that each problem might require specific adjustments and techniques. Keep experimenting and learning from your results.
+                </p>
+
+                <div class="post-nav">
+                    <a href="svm.html" class="prev-post"><i class="fas fa-arrow-left"></i> Support Vector Machines</a>
+                    <a href="reinforcement-learning.html" class="next-post">Introduction to Reinforcement Learning <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

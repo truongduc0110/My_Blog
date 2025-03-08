@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - My Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .breadcrumb {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .breadcrumb span {
+            color: #666;
+        }
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .category-title i {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #333;
+        }
+        .category-title span {
+            font-size: 24px;
+            color: #333;
+        }
+        .post-count {
+            color: #666;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+        .blog-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .blog-item:last-child {
+            border-bottom: none;
+        }
+        .blog-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .blog-title {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+        .blog-title:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> › 
+            <a href="../categories.html">Categories</a> › 
+            <span>Machine Learning</span>
+        </div>
+
+        <div class="category-title">
+            <i class="fas fa-brain"></i>
+            <span>Machine Learning</span>
+            <span class="post-count">(5)</span>
+        </div>
+
+        <ul class="blog-list">
+            <li class="blog-item">
+                <div class="blog-date">Feb 2, 2025</div>
+                <a href="../posts/overfitting.html" class="blog-title">Overfitting</a>
+            </li>
+            <li class="blog-item">
+                <div class="blog-date">Jan 31, 2025</div>
+                <a href="../posts/hoi-quy-tuyen-tinh.html" class="blog-title">Hồi Quy Tuyến Tính</a>
+            </li>
+            <li class="blog-item">
+                <div class="blog-date">Jan 20, 2025</div>
+                <a href="../posts/neural-networks.html" class="blog-title">A Recipe for Training Neural Networks</a>
+            </li>
+            <li class="blog-item">
+                <div class="blog-date">Jan 15, 2025</div>
+                <a href="../posts/svm.html" class="blog-title">Introduction to Support Vector Machines</a>
+            </li>
+            <li class="blog-item">
+                <div class="blog-date">Feb 15, 2025</div>
+                <a href="../posts/reinforcement-learning.html" class="blog-title">Introduction to Reinforcement Learning</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

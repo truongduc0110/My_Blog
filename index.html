@@ -3,127 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dat's Blog</title>
+    <title>My Blog</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="profile">
-                <img src="images/profile.jpg" alt="Profile Picture" class="profile-img">
-                <h1 class="blog-title">Dat's Blog</h1>
-                <p class="blog-subtitle">It Is All You Need</p>
+                <img src="images/2e591051-01c9-40c1-a0b1-f7839fbf73fe.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Không có gì</p>
             </div>
 
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="nav-item active"><i class="fas fa-home"></i> HOME</a></li>
-                    <li><a href="#" class="nav-item"><i class="fas fa-list"></i> CATEGORIES</a></li>
-                    <li><a href="#" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
-                    <li><a href="#" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
-                    <li><a href="#" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
+                    <li><a href="categories.html" class="nav-item"><i class="fas fa-list"></i> CATEGORIES</a></li>
+                    <li><a href="tags.html" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
+                    <li><a href="archives.html" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
+                    <li><a href="about.html" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
                 </ul>
             </nav>
 
             <div class="social-links">
-                <a href="#" class="social-link"><i class="fas fa-moon"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-circle"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-rss"></i></a>
+                <a href="#" class="social-link" id="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
+                <a href="https://github.com/truongduc0110" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:example@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="rss.xml" class="social-link" title="RSS Feed"><i class="fas fa-rss"></i></a>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
             <header class="content-header">
-                <a href="index.html" class="header-link">Home</a>
+                <div class="header-left">
+                    <a href="index.html" class="header-link">Home</a>
+                    <div class="breadcrumbs">
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="current-page">Latest Posts</span>
+                    </div>
+                </div>
                 <div class="search-box">
                     <input type="text" placeholder="Search..." class="search-input">
                     <button class="search-button"><i class="fas fa-search"></i></button>
                 </div>
             </header>
 
-            <section class="posts">
-                <!-- Post 1 -->
-                <article class="post">
-                    <h2 class="post-title"><a href="posts/overfitting.html">Overfitting</a></h2>
-                    <div class="post-content">
-                        <p>Overfitting không phải là một thuật toán trong Machine Learning. Nó là một hiện tượng không mong muốn thường gặp, người xây dựng mô hình Machine Learning cần nắm được các kỹ thuật để tránh hiện tượng này...</p>
+            <div class="content-wrapper">
+                <section class="posts">
+                    <div class="section-header">
+                        <h2 class="section-title">Latest Articles</h2>
+                        <a href="archives.html" class="view-all">View All</a>
                     </div>
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> Feb 2, 2025</span>
-                        <span class="post-category"><i class="fas fa-folder"></i> Machine Learning</span>
-                    </div>
-                </article>
+                    
+                    <!-- Post 1 -->
+                    <article class="post">
+                        <div class="post-thumbnail">
+                            <a href="posts/overfitting.html">
+                                <img src="images/post-thumb-1.jpg" alt="Overfitting" class="post-thumb-img">
+                            </a>
+                        </div>
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/overfitting.html">Overfitting</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Feb 2, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/machine-learning.html">Machine Learning</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 8 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Overfitting không phải là một thuật toán trong Machine Learning. Nó là một hiện tượng không mong muốn thường gặp, người xây dựng mô hình Machine Learning cần nắm được các kỹ thuật để tránh hiện tượng này...</p>
+                            </div>
+                            <a href="posts/overfitting.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
 
-                <!-- Post 2 -->
-                <article class="post">
-                    <h2 class="post-title"><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></h2>
-                    <div class="post-content">
-                        <p>Phương trình hồi quy tuyến tính có rất nhiều ứng dụng trong thực tiễn và là một trong những lớp mô hình đặc biệt quan trọng trong machine learning. Chúng ta sẽ không thể kể hết được ứng dụng của nó...</p>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> Jan 31, 2025</span>
-                        <span class="post-category"><i class="fas fa-folder"></i> Machine Learning</span>
-                    </div>
-                </article>
+                    <!-- Post 2 -->
+                    <article class="post">
+                        <div class="post-thumbnail">
+                            <a href="posts/hoi-quy-tuyen-tinh.html">
+                                <img src="images/post-thumb-2.jpg" alt="Hồi Quy Tuyến Tính" class="post-thumb-img">
+                            </a>
+                        </div>
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 31, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/machine-learning.html">Machine Learning</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Phương trình hồi quy tuyến tính có rất nhiều ứng dụng trong thực tiễn và là một trong những lớp mô hình đặc biệt quan trọng trong machine learning. Chúng ta sẽ không thể kể hết được ứng dụng của nó...</p>
+                            </div>
+                            <a href="posts/hoi-quy-tuyen-tinh.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
 
-                <!-- Post 3 -->
-                <article class="post">
-                    <h2 class="post-title"><a href="posts/nam-2024.html">Năm 2024 Để Lại Cho Mình Điều Gì ?</a></h2>
-                    <div class="post-content">
-                        <p>Lúc viết blog này là mồng 1 tết và bây giờ là 10h tối. Mình cũng không có hứng thú viết blog gì về AI lắm nên là mình sẽ viết vài điều mà năm 2024 đã để lại cho mình. Đây là vài thứ mà mình rút ra...</p>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> Jan 26, 2025</span>
-                        <span class="post-category"><i class="fas fa-folder"></i> Tản Mạn</span>
-                    </div>
-                </article>
+                    <!-- Post 3 -->
+                    <article class="post">
+                        <div class="post-thumbnail">
+                            <a href="posts/nam-2024.html">
+                                <img src="images/post-thumb-3.jpg" alt="Năm 2024" class="post-thumb-img">
+                            </a>
+                        </div>
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/nam-2024.html">Năm 2024 Để Lại Cho Mình Điều Gì ?</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 26, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/tan-man.html">Tản Mạn</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 4 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Lúc viết blog này là mồng 1 tết và bây giờ là 10h tối. Mình cũng không có hứng thú viết blog gì về AI lắm nên là mình sẽ viết vài điều mà năm 2024 đã để lại cho mình. Đây là vài thứ mà mình rút ra...</p>
+                            </div>
+                            <a href="posts/nam-2024.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
 
-                <!-- Post 4 -->
-                <article class="post">
-                    <h2 class="post-title"><a href="posts/neural-networks.html">A Recipe for Training Neural Networks</a></h2>
-                    <div class="post-content">
-                        <p>Placeholder text for "A Recipe for Training Neural Networks" article...</p>
-                    </div>
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> Jan 20, 2025</span>
-                        <span class="post-category"><i class="fas fa-folder"></i> Machine Learning</span>
-                    </div>
-                </article>
-            </section>
+                    <!-- Post 4 -->
+                    <article class="post">
+                        <div class="post-thumbnail">
+                            <a href="posts/neural-networks.html">
+                                <img src="images/post-thumb-4.jpg" alt="Neural Networks" class="post-thumb-img">
+                            </a>
+                        </div>
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/neural-networks.html">A Recipe for Training Neural Networks</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 20, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/machine-learning.html">Machine Learning</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 10 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Neural networks are powerful but finicky beasts. This post provides a practical guide to training neural networks effectively, based on years of experience and lessons learned...</p>
+                            </div>
+                            <a href="posts/neural-networks.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </section>
 
-            <aside class="sidebar-right">
-                <div class="widget">
-                    <h3 class="widget-title">Recently Updated</h3>
-                    <ul class="widget-list">
-                        <li><a href="posts/overfitting.html">Overfitting</a></li>
-                        <li><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></li>
-                        <li><a href="posts/xac-suat-thong-ke.html">Xác Suất Thống Kê</a></li>
-                        <li><a href="posts/text-classification.html">Text Classification</a></li>
-                        <li><a href="posts/transformer-anatomy.html">Transformer Anatomy</a></li>
-                    </ul>
+                <aside class="sidebar-right">
+                    <div class="widget">
+                        <h3 class="widget-title">Recently Updated</h3>
+                        <ul class="widget-list">
+                            <li><a href="posts/overfitting.html">Overfitting</a></li>
+                            <li><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></li>
+                            <li><a href="posts/xac-suat-thong-ke.html">Xác Suất Thống Kê</a></li>
+                            <li><a href="posts/text-classification.html">Text Classification</a></li>
+                            <li><a href="posts/transformer-anatomy.html">Transformer Anatomy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget" id="categories">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="categories/machine-learning.html" class="category-item">
+                                <span class="category-name">Machine Learning</span>
+                                <span class="category-count">12</span>
+                            </a></li>
+                            <li><a href="categories/deep-learning.html" class="category-item">
+                                <span class="category-name">Deep Learning</span>
+                                <span class="category-count">8</span>
+                            </a></li>
+                            <li><a href="categories/nlp.html" class="category-item">
+                                <span class="category-name">Natural Language Processing</span>
+                                <span class="category-count">5</span>
+                            </a></li>
+                            <li><a href="categories/computer-vision.html" class="category-item">
+                                <span class="category-name">Computer Vision</span>
+                                <span class="category-count">4</span>
+                            </a></li>
+                            <li><a href="categories/tan-man.html" class="category-item">
+                                <span class="category-name">Tản Mạn</span>
+                                <span class="category-count">3</span>
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget" id="tags">
+                        <h3 class="widget-title">Trending Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="#python" class="tag">python</a>
+                            <a href="#linear" class="tag">linear</a>
+                            <a href="#nlp" class="tag">nlp</a>
+                            <a href="#token" class="tag">token</a>
+                            <a href="#api" class="tag">api</a>
+                            <a href="#cloud" class="tag">cloud</a>
+                            <a href="#codesage" class="tag">codesage</a>
+                            <a href="#contrastive-learning" class="tag">contrastive learning</a>
+                            <a href="#crawl-data" class="tag">crawl data</a>
+                            <a href="#deep-learning" class="tag">deep learning</a>
+                            <a href="#tensorflow" class="tag">tensorflow</a>
+                            <a href="#pytorch" class="tag">pytorch</a>
+                        </div>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">Newsletter</h3>
+                        <div class="newsletter">
+                            <p>Subscribe to get notified about new posts and updates</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 class="footer-title">About</h3>
+                        <p class="footer-about">My Blog is a personal website focused on Machine Learning, Deep Learning, and AI topics. I share my knowledge, experiences, and insights about the latest technologies.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="footer-title">Contact</h3>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:example@example.com">example@example.com</a></li>
+                            <li><i class="fab fa-github"></i> <a href="https://github.com/truongduc0110" target="_blank">truongduc0110</a></li>
+                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <div class="widget">
-                    <h3 class="widget-title">Trending Tags</h3>
-                    <div class="tag-cloud">
-                        <a href="#" class="tag">python</a>
-                        <a href="#" class="tag">linear</a>
-                        <a href="#" class="tag">nlp</a>
-                        <a href="#" class="tag">Token</a>
-                        <a href="#" class="tag">api</a>
-                        <a href="#" class="tag">cloud</a>
-                        <a href="#" class="tag">codesage</a>
-                        <a href="#" class="tag">contrastive learning</a>
-                        <a href="#" class="tag">crawl data</a>
-                        <a href="#" class="tag">deep learning</a>
-                    </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 My Blog. All rights reserved.</p>
                 </div>
-            </aside>
+            </footer>
         </main>
     </div>
 

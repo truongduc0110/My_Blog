@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồi Quy Tuyến Tính - My Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .post-meta span {
+            margin: 0 10px;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #222;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-content code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .post-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post-nav a:hover {
+            text-decoration: underline;
+        }
+        .math {
+            font-family: 'Computer Modern', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> › 
+            <a href="../categories.html">Categories</a> › 
+            <a href="../categories/machine-learning.html">Machine Learning</a> ›
+            <span>Hồi Quy Tuyến Tính</span>
+        </div>
+
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Hồi Quy Tuyến Tính</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> Jan 31, 2025</span>
+                    <span><i class="fas fa-folder"></i> <a href="../categories/machine-learning.html">Machine Learning</a></span>
+                    <span><i class="fas fa-tags"></i> 
+                        <a href="../tags.html#linear">linear</a>,
+                        <a href="../tags.html#regression">regression</a>,
+                        <a href="../tags.html#machine-learning">machine learning</a>
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    Hồi quy tuyến tính (Linear Regression) là một trong những thuật toán cơ bản và quan trọng nhất trong machine learning. Nó được sử dụng để dự đoán một biến liên tục dựa trên một hoặc nhiều biến đầu vào.
+                </p>
+
+                <h2>1. Khái niệm cơ bản</h2>
+                <p>
+                    Hồi quy tuyến tính tìm cách xấp xỉ mối quan hệ giữa biến phụ thuộc y và một hoặc nhiều biến độc lập x thông qua một hàm tuyến tính:
+                </p>
+                <pre><code>y = wx + b
+
+Trong đó:
+- y: biến phụ thuộc (target)
+- x: biến độc lập (feature)
+- w: hệ số (weight)
+- b: độ chệch (bias)</code></pre>
+
+                <img src="../images/linear-regression.png" alt="Biểu đồ minh họa Hồi quy tuyến tính">
+
+                <h2>2. Triển khai với Python</h2>
+                <p>
+                    Scikit-learn cung cấp một cách đơn giản để triển khai hồi quy tuyến tính:
+                </p>
+                <pre><code>from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Tạo dữ liệu mẫu
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 4, 6, 8, 10])
+
+# Khởi tạo và huấn luyện mô hình
+model = LinearRegression()
+model.fit(X, y)
+
+# Dự đoán
+print(model.predict([[6]]))</code></pre>
+
+                <h2>3. Đánh giá mô hình</h2>
+                <p>
+                    Có nhiều metrics để đánh giá mô hình hồi quy tuyến tính:
+                </p>
+                <pre><code>from sklearn.metrics import mean_squared_error, r2_score
+
+# Tính MSE
+y_pred = model.predict(X)
+mse = mean_squared_error(y, y_pred)
+
+# Tính R-squared
+r2 = r2_score(y, y_pred)
+
+print(f"MSE: {mse}")
+print(f"R2 Score: {r2}")</code></pre>
+
+                <h2>4. Hồi quy tuyến tính đa biến</h2>
+                <p>
+                    Trong thực tế, chúng ta thường có nhiều biến đầu vào:
+                </p>
+                <pre><code>from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+
+# Load dữ liệu
+boston = load_boston()
+X = boston.data
+y = boston.target
+
+# Chia dữ liệu
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Huấn luyện mô hình
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Đánh giá
+train_score = model.score(X_train, y_train)
+test_score = model.score(X_test, y_test)
+
+print(f"Train Score: {train_score}")
+print(f"Test Score: {test_score}")</code></pre>
+
+                <h2>5. Regularization</h2>
+                <p>
+                    Để tránh overfitting, chúng ta có thể sử dụng các phương pháp regularization:
+                </p>
+                <pre><code>from sklearn.linear_model import Ridge, Lasso
+
+# Ridge Regression (L2)
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)
+
+# Lasso Regression (L1)
+lasso = Lasso(alpha=1.0)
+lasso.fit(X_train, y_train)
+
+print("Ridge score:", ridge.score(X_test, y_test))
+print("Lasso score:", lasso.score(X_test, y_test))</code></pre>
+
+                <h2>6. Ưu và nhược điểm</h2>
+                <p>Ưu điểm:</p>
+                <ul>
+                    <li>Đơn giản, dễ hiểu và triển khai</li>
+                    <li>Tốc độ huấn luyện và dự đoán nhanh</li>
+                    <li>Ít tham số cần điều chỉnh</li>
+                    <li>Dễ dàng giải thích cho người không chuyên</li>
+                </ul>
+
+                <p>Nhược điểm:</p>
+                <ul>
+                    <li>Giả định quan hệ tuyến tính giữa các biến</li>
+                    <li>Nhạy cảm với outliers</li>
+                    <li>Không phù hợp với dữ liệu phi tuyến</li>
+                </ul>
+
+                <h2>Kết luận</h2>
+                <p>
+                    Hồi quy tuyến tính là một công cụ mạnh mẽ cho các bài toán dự đoán đơn giản. Mặc dù có những hạn chế nhất định, nó vẫn là một trong những thuật toán machine learning được sử dụng rộng rãi nhất trong thực tế.
+                </p>
+
+                <div class="post-nav">
+                    <a href="svm.html" class="prev-post"><i class="fas fa-arrow-left"></i> Support Vector Machines</a>
+                    <a href="overfitting.html" class="next-post">Overfitting <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

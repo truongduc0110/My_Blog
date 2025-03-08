@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Support Vector Machines - My Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .post-meta span {
+            margin: 0 10px;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #222;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-content code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .post-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post-nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> › 
+            <a href="../categories.html">Categories</a> › 
+            <a href="../categories/machine-learning.html">Machine Learning</a> ›
+            <span>Support Vector Machines</span>
+        </div>
+
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Introduction to Support Vector Machines</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> Jan 15, 2025</span>
+                    <span><i class="fas fa-folder"></i> <a href="../categories/machine-learning.html">Machine Learning</a></span>
+                    <span><i class="fas fa-tags"></i> 
+                        <a href="../tags.html#svm">svm</a>,
+                        <a href="../tags.html#classification">classification</a>,
+                        <a href="../tags.html#machine-learning">machine learning</a>
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    Support Vector Machines (SVM) là một trong những thuật toán machine learning mạnh mẽ nhất, được sử dụng rộng rãi cho cả bài toán phân loại và hồi quy. Bài viết này sẽ giới thiệu về SVM và cách áp dụng nó trong thực tế.
+                </p>
+
+                <h2>1. Nguyên lý hoạt động của SVM</h2>
+                <p>
+                    SVM hoạt động bằng cách tìm một siêu phẳng (hyperplane) tối ưu để phân tách các điểm dữ liệu thành các lớp khác nhau. Siêu phẳng tối ưu là siêu phẳng có khoảng cách (margin) lớn nhất đến các điểm dữ liệu gần nhất của mỗi lớp.
+                </p>
+
+                <img src="../images/svm.png" alt="Support Vector Machines Visualization">
+
+                <h2>2. Triển khai SVM với Python</h2>
+                <p>
+                    Scikit-learn cung cấp một cách đơn giản để triển khai SVM:
+                </p>
+                <pre><code>from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Chuẩn hóa dữ liệu
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Chia dữ liệu
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y, test_size=0.2, random_state=42
+)
+
+# Huấn luyện mô hình
+svm = SVC(kernel='rbf', C=1.0)
+svm.fit(X_train, y_train)
+
+# Đánh giá
+print(f"Training accuracy: {svm.score(X_train, y_train)}")
+print(f"Testing accuracy: {svm.score(X_test, y_test)}")</code></pre>
+
+                <h2>3. Kernel Trick</h2>
+                <p>
+                    Một trong những điểm mạnh của SVM là khả năng xử lý dữ liệu phi tuyến tính thông qua kernel trick. Các kernel phổ biến bao gồm:
+                </p>
+                <ul>
+                    <li>Linear kernel: Cho dữ liệu tuyến tính</li>
+                    <li>RBF (Gaussian) kernel: Cho dữ liệu phi tuyến tính</li>
+                    <li>Polynomial kernel: Cho dữ liệu có mối quan hệ đa thức</li>
+                    <li>Sigmoid kernel: Thường dùng trong neural networks</li>
+                </ul>
+
+                <pre><code># Linear Kernel
+svm_linear = SVC(kernel='linear')
+
+# RBF Kernel
+svm_rbf = SVC(kernel='rbf', gamma='scale')
+
+# Polynomial Kernel
+svm_poly = SVC(kernel='poly', degree=3)
+
+# Sigmoid Kernel
+svm_sigmoid = SVC(kernel='sigmoid')</code></pre>
+
+                <h2>4. Điều chỉnh tham số</h2>
+                <p>
+                    SVM có một số tham số quan trọng cần điều chỉnh:
+                </p>
+                <pre><code>from sklearn.model_selection import GridSearchCV
+
+# Định nghĩa không gian tham số
+param_grid = {
+    'C': [0.1, 1, 10, 100],
+    'gamma': ['scale', 'auto', 0.1, 1],
+    'kernel': ['rbf', 'linear']
+}
+
+# Tìm kiếm lưới
+grid_search = GridSearchCV(
+    SVC(), param_grid, cv=5, scoring='accuracy'
+)
+grid_search.fit(X_train, y_train)
+
+print("Best parameters:", grid_search.best_params_)
+print("Best score:", grid_search.best_score_)</code></pre>
+
+                <h2>5. Ứng dụng thực tế</h2>
+                <p>SVM được sử dụng rộng rãi trong nhiều lĩnh vực:</p>
+                <ul>
+                    <li>Phân loại văn bản và spam detection</li>
+                    <li>Nhận dạng chữ viết tay</li>
+                    <li>Phân loại hình ảnh</li>
+                    <li>Phân tích dữ liệu gene trong sinh học</li>
+                    <li>Dự đoán giá cổ phiếu</li>
+                </ul>
+
+                <h2>6. Ưu và nhược điểm</h2>
+                <p>Ưu điểm:</p>
+                <ul>
+                    <li>Hiệu quả trong không gian nhiều chiều</li>
+                    <li>Linh hoạt thông qua kernel trick</li>
+                    <li>Robust với outliers</li>
+                    <li>Tối ưu toàn cục (không bị local minima)</li>
+                </ul>
+
+                <p>Nhược điểm:</p>
+                <ul>
+                    <li>Khó scale với dữ liệu lớn</li>
+                    <li>Nhạy cảm với việc chọn kernel và tham số</li>
+                    <li>Thời gian huấn luyện có thể lâu</li>
+                    <li>Khó giải thích kết quả</li>
+                </ul>
+
+                <h2>Kết luận</h2>
+                <p>
+                    Support Vector Machines là một thuật toán mạnh mẽ và linh hoạt trong machine learning. Mặc dù có một số hạn chế, SVM vẫn là lựa chọn tốt cho nhiều bài toán phân loại và hồi quy, đặc biệt khi làm việc với dữ liệu có số chiều cao.
+                </p>
+
+                <div class="post-nav">
+                    <a href="neural-networks.html" class="prev-post"><i class="fas fa-arrow-left"></i> A Recipe for Training Neural Networks</a>
+                    <a href="hoi-quy-tuyen-tinh.html" class="next-post">Hồi Quy Tuyến Tính <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Reinforcement Learning - My Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .post-meta span {
+            margin: 0 10px;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #222;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-content code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .post-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post-nav a:hover {
+            text-decoration: underline;
+        }
+        .concept-box {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .concept-box h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> › 
+            <a href="../categories.html">Categories</a> › 
+            <a href="../categories/machine-learning.html">Machine Learning</a> ›
+            <span>Reinforcement Learning</span>
+        </div>
+
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Introduction to Reinforcement Learning</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> Feb 15, 2025</span>
+                    <span><i class="fas fa-folder"></i> <a href="../categories/machine-learning.html">Machine Learning</a></span>
+                    <span><i class="fas fa-tags"></i> 
+                        <a href="../tags.html#reinforcement-learning">reinforcement learning</a>,
+                        <a href="../tags.html#machine-learning">machine learning</a>,
+                        <a href="../tags.html#algorithms">algorithms</a>
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    Reinforcement Learning (RL) is a type of machine learning where an agent learns to make decisions by interacting with an environment. Unlike supervised learning, where we have labeled data, in RL the agent learns from experience through trial and error.
+                </p>
+
+                <img src="../images/reinforcement-learning.png" alt="Reinforcement Learning Cycle">
+
+                <h2>1. Key Concepts</h2>
+                
+                <div class="concept-box">
+                    <h3>Agent</h3>
+                    <p>The learner or decision-maker that interacts with the environment.</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Environment</h3>
+                    <p>The world that the agent interacts with, which includes everything outside the agent.</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>State</h3>
+                    <p>A complete description of the environment at a given time.</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Action</h3>
+                    <p>What the agent can do in the environment.</p>
+                </div>
+
+                <div class="concept-box">
+                    <h3>Reward</h3>
+                    <p>A scalar feedback signal that indicates how well the agent is doing.</p>
+                </div>
+
+                <h2>2. Implementation with Python</h2>
+                <p>Here's a simple example using OpenAI Gym:</p>
+                <pre><code>import gym
+import numpy as np
+
+# Create environment
+env = gym.make('CartPole-v1')
+
+# Q-learning parameters
+learning_rate = 0.1
+discount_factor = 0.95
+epsilon = 0.1
+
+# Initialize Q-table
+Q = np.zeros([env.observation_space.n, env.action_space.n])
+
+def choose_action(state):
+    if np.random.random() < epsilon:
+        return env.action_space.sample()  # Explore
+    return np.argmax(Q[state])  # Exploit
+
+# Training loop
+for episode in range(1000):
+    state = env.reset()
+    done = False
+    
+    while not done:
+        action = choose_action(state)
+        next_state, reward, done, _ = env.step(action)
+        
+        # Q-learning update
+        old_value = Q[state, action]
+        next_max = np.max(Q[next_state])
+        
+        new_value = (1 - learning_rate) * old_value + \
+                   learning_rate * (reward + discount_factor * next_max)
+        Q[state, action] = new_value
+        
+        state = next_state</code></pre>
+
+                <h2>3. Common Algorithms</h2>
+                <h3>Q-Learning</h3>
+                <p>
+                    Q-Learning is a value-based approach that learns a Q-function mapping state-action pairs to expected rewards:
+                </p>
+                <pre><code>class QLearningAgent:
+    def __init__(self, state_size, action_size):
+        self.q_table = np.zeros((state_size, action_size))
+        self.lr = 0.1
+        self.gamma = 0.95
+        
+    def update(self, state, action, reward, next_state):
+        old_value = self.q_table[state, action]
+        next_max = np.max(self.q_table[next_state])
+        new_value = old_value + self.lr * (
+            reward + self.gamma * next_max - old_value
+        )
+        self.q_table[state, action] = new_value</code></pre>
+
+                <h3>Policy Gradient</h3>
+                <p>
+                    Policy gradient methods directly learn the policy function:
+                </p>
+                <pre><code>import torch.nn as nn
+
+class PolicyNetwork(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Linear(input_size, hidden_size),
+            nn.ReLU(),
+            nn.Linear(hidden_size, output_size),
+            nn.Softmax(dim=-1)
+        )
+    
+    def forward(self, state):
+        return self.network(state)</code></pre>
+
+                <h2>4. Deep Reinforcement Learning</h2>
+                <p>
+                    Deep RL combines reinforcement learning with deep neural networks:
+                </p>
+                <pre><code>class DQN(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Linear(input_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, output_dim)
+        )
+    
+    def forward(self, x):
+        return self.network(x)</code></pre>
+
+                <h2>5. Applications</h2>
+                <p>Reinforcement Learning has numerous real-world applications:</p>
+                <ul>
+                    <li>Game playing (AlphaGo, OpenAI Five)</li>
+                    <li>Robotics and control</li>
+                    <li>Resource management</li>
+                    <li>Recommendation systems</li>
+                    <li>Autonomous vehicles</li>
+                </ul>
+
+                <h2>6. Challenges in RL</h2>
+                <ul>
+                    <li>Credit assignment problem</li>
+                    <li>Exploration vs exploitation trade-off</li>
+                    <li>Sample efficiency</li>
+                    <li>Stability and convergence</li>
+                    <li>Transfer learning</li>
+                </ul>
+
+                <h2>7. Best Practices</h2>
+                <ul>
+                    <li>Start with simple environments</li>
+                    <li>Use proper reward shaping</li>
+                    <li>Implement experience replay</li>
+                    <li>Monitor training progress</li>
+                    <li>Use proper hyperparameter tuning</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>
+                    Reinforcement Learning is a powerful paradigm that enables agents to learn optimal behavior through interaction with their environment. While it presents unique challenges, its potential applications are vast and continue to grow with advances in deep learning and computing power.
+                </p>
+
+                <div class="post-nav">
+                    <a href="neural-networks.html" class="prev-post"><i class="fas fa-arrow-left"></i> A Recipe for Training Neural Networks</a>
+                    <a href="overfitting.html" class="next-post">Overfitting <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+</body>
+</html>

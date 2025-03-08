@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overfitting - Dat's Blog</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/post.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="../images/profile.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="blog-title">Dat's Blog</h1>
+                <p class="blog-subtitle">It Is All You Need</p>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html" class="nav-item"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-list"></i> CATEGORIES</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
+                    <li><a href="#" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fas fa-moon"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-circle"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-rss"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <a href="../index.html" class="header-link">Home</a>
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <section class="post-container">
+                <article class="post-full">
+                    <h1 class="post-title">Overfitting</h1>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> Feb 2, 2025</span>
+                        <span class="post-category"><i class="fas fa-folder"></i> Machine Learning</span>
+                    </div>
+                    
+                    <div class="post-content-full">
+                        <p>Overfitting không phải là một thuật toán trong Machine Learning. Nó là một hiện tượng không mong muốn thường gặp, người xây dựng mô hình Machine Learning cần nắm được các kỹ thuật để tránh hiện tượng này.</p>
+                        
+                        <h2>Overfitting là gì?</h2>
+                        <p>Overfitting xảy ra khi một mô hình học quá kỹ từ dữ liệu huấn luyện (training data) đến mức nó học cả những nhiễu (noise) trong dữ liệu. Kết quả là mô hình hoạt động rất tốt trên dữ liệu huấn luyện nhưng lại kém hiệu quả khi dự đoán trên dữ liệu mới.</p>
+                        
+                        <div class="image-container">
+                            <img src="../images/overfitting.png" alt="Overfitting Visualization" class="post-image">
+                            <p class="image-caption">Hình 1: Minh họa hiện tượng overfitting</p>
+                        </div>
+                        
+                        <p>Trong hình minh họa trên:</p>
+                        <ul>
+                            <li>Đường màu xanh lá cây (underfitting): mô hình quá đơn giản, không nắm bắt được xu hướng của dữ liệu.</li>
+                            <li>Đường màu xanh dương (good fit): mô hình nắm bắt được xu hướng chung của dữ liệu.</li>
+                            <li>Đường màu đỏ (overfitting): mô hình quá phức tạp, học cả những nhiễu trong dữ liệu huấn luyện.</li>
+                        </ul>
+                        
+                        <h2>Nguyên nhân gây ra overfitting</h2>
+                        <p>Có nhiều nguyên nhân dẫn đến hiện tượng overfitting:</p>
+                        <ol>
+                            <li>Mô hình quá phức tạp so với lượng dữ liệu huấn luyện.</li>
+                            <li>Dữ liệu huấn luyện có quá nhiều nhiễu.</li>
+                            <li>Huấn luyện mô hình quá lâu.</li>
+                            <li>Không có đủ dữ liệu huấn luyện.</li>
+                        </ol>
+                        
+                        <h2>Các phương pháp tránh overfitting</h2>
+                        
+                        <h3>1. Cross-validation</h3>
+                        <p>Cross-validation là kỹ thuật chia dữ liệu thành nhiều phần, huấn luyện mô hình trên một số phần và kiểm tra trên các phần còn lại. Kỹ thuật phổ biến nhất là k-fold cross-validation.</p>
+                        
+                        <pre><code class="language-python">
+from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LogisticRegression
+
+model = LogisticRegression()
+scores = cross_val_score(model, X, y, cv=5)  # 5-fold cross-validation
+print("Cross-validation scores:", scores)
+print("Mean score:", scores.mean())
+                        </code></pre>
+                        
+                        <h3>2. Regularization</h3>
+                        <p>Regularization là kỹ thuật thêm một thành phần phạt (penalty term) vào hàm mất mát (loss function) để hạn chế độ phức tạp của mô hình.</p>
+                        
+                        <p>Các phương pháp regularization phổ biến:</p>
+                        <ul>
+                            <li>L1 Regularization (Lasso): Thêm thành phần phạt dựa trên tổng giá trị tuyệt đối của các trọng số.</li>
+                            <li>L2 Regularization (Ridge): Thêm thành phần phạt dựa trên tổng bình phương của các trọng số.</li>
+                            <li>Elastic Net: Kết hợp cả L1 và L2 regularization.</li>
+                        </ul>
+                        
+                        <pre><code class="language-python">
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
+
+# Ridge Regression (L2)
+ridge_model = Ridge(alpha=1.0)  # alpha là hệ số regularization
+ridge_model.fit(X_train, y_train)
+
+# Lasso Regression (L1)
+lasso_model = Lasso(alpha=1.0)
+lasso_model.fit(X_train, y_train)
+
+# Elastic Net
+elastic_model = ElasticNet(alpha=1.0, l1_ratio=0.5)  # l1_ratio kiểm soát tỷ lệ giữa L1 và L2
+elastic_model.fit(X_train, y_train)
+                        </code></pre>
+                        
+                        <h3>3. Dropout</h3>
+                        <p>Dropout là kỹ thuật được sử dụng chủ yếu trong neural networks, trong đó một tỷ lệ ngẫu nhiên các neuron bị "tắt" trong quá trình huấn luyện, giúp mô hình không phụ thuộc quá nhiều vào bất kỳ neuron nào.</p>
+                        
+                        <pre><code class="language-python">
+import tensorflow as tf
+from tensorflow.keras.layers import Dense, Dropout
+
+model = tf.keras.Sequential([
+    Dense(128, activation='relu', input_shape=(input_dim,)),
+    Dropout(0.5),  # 50% dropout rate
+    Dense(64, activation='relu'),
+    Dropout(0.3),  # 30% dropout rate
+    Dense(output_dim, activation='softmax')
+])
+                        </code></pre>
+                        
+                        <h3>4. Early Stopping</h3>
+                        <p>Early stopping là kỹ thuật dừng quá trình huấn luyện khi hiệu suất trên tập validation không còn cải thiện sau một số epoch nhất định.</p>
+                        
+                        <pre><code class="language-python">
+from tensorflow.keras.callbacks import EarlyStopping
+
+early_stopping = EarlyStopping(
+    monitor='val_loss',  # Theo dõi validation loss
+    patience=10,         # Số epoch chờ đợi trước khi dừng
+    restore_best_weights=True  # Khôi phục trọng số tốt nhất
+)
+
+model.fit(
+    X_train, y_train,
+    validation_data=(X_val, y_val),
+    epochs=1000,  # Số epoch tối đa
+    callbacks=[early_stopping]
+)
+                        </code></pre>
+                        
+                        <h3>5. Data Augmentation</h3>
+                        <p>Data augmentation là kỹ thuật tạo ra thêm dữ liệu huấn luyện bằng cách biến đổi dữ liệu hiện có. Kỹ thuật này đặc biệt hữu ích trong computer vision và xử lý ảnh.</p>
+                        
+                        <pre><code class="language-python">
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+datagen = ImageDataGenerator(
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True,
+    zoom_range=0.2
+)
+
+datagen.fit(X_train)
+                        </code></pre>
+                        
+                        <h2>Kết luận</h2>
+                        <p>Overfitting là một trong những thách thức lớn nhất trong machine learning. Việc nhận biết và xử lý overfitting đòi hỏi kinh nghiệm và sự hiểu biết sâu sắc về mô hình và dữ liệu. Bằng cách áp dụng các kỹ thuật được đề cập ở trên, chúng ta có thể xây dựng các mô hình có khả năng tổng quát hóa tốt hơn trên dữ liệu mới.</p>
+                        
+                        <div class="post-tags">
+                            <span class="tag-label">Tags:</span>
+                            <a href="#" class="post-tag">machine learning</a>
+                            <a href="#" class="post-tag">overfitting</a>
+                            <a href="#" class="post-tag">regularization</a>
+                            <a href="#" class="post-tag">cross-validation</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="sidebar-right">
+                <div class="widget">
+                    <h3 class="widget-title">Recently Updated</h3>
+                    <ul class="widget-list">
+                        <li><a href="overfitting.html">Overfitting</a></li>
+                        <li><a href="hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></li>
+                        <li><a href="xac-suat-thong-ke.html">Xác Suất Thống Kê</a></li>
+                        <li><a href="text-classification.html">Text Classification</a></li>
+                        <li><a href="transformer-anatomy.html">Transformer Anatomy</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Trending Tags</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">python</a>
+                        <a href="#" class="tag">linear</a>
+                        <a href="#" class="tag">nlp</a>
+                        <a href="#" class="tag">Token</a>
+                        <a href="#" class="tag">api</a>
+                        <a href="#" class="tag">cloud</a>
+                        <a href="#" class="tag">codesage</a>
+                        <a href="#" class="tag">contrastive learning</a>
+                        <a href="#" class="tag">crawl data</a>
+                        <a href="#" class="tag">deep learning</a>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

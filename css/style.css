@@ -1,0 +1,294 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #f0f2f5;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    border-right: 1px solid #e1e4e8;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.blog-title {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.blog-subtitle {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.main-nav {
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #e1e4e8;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.social-link {
+    color: #666;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: #333;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.header-link {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -30px;
+    color: #666;
+}
+
+/* Posts Section */
+.posts {
+    flex: 1;
+    max-width: 800px;
+    margin-right: 30px;
+}
+
+.post {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.post-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.post-title a {
+    color: #333;
+    transition: color 0.3s;
+}
+
+.post-title a:hover {
+    color: #0366d6;
+}
+
+.post-content {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.post-meta {
+    display: flex;
+    color: #666;
+    font-size: 14px;
+}
+
+.post-date, .post-category {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.post-meta i {
+    margin-right: 5px;
+}
+
+/* Right Sidebar */
+.sidebar-right {
+    width: 300px;
+}
+
+.widget {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.widget-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.widget-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.widget-list li:last-child {
+    border-bottom: none;
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: #f0f2f5;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+
+.tag:hover {
+    background-color: #e1e4e8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .posts {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .sidebar-right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 15px;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+}

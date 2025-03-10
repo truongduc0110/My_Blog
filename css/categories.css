@@ -11,7 +11,7 @@
 
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 23px;
     color: #333;
     margin-bottom: 15px;
 }
@@ -26,9 +26,11 @@
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 20px 0;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .category-card {
@@ -153,7 +155,7 @@
     }
 
     .categories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 800px;
         gap: 25px;
     }
 
@@ -174,6 +176,7 @@
     .categories-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        max-width: 500px;
     }
     
     .category-card {

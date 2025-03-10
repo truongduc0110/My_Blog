@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog - Page 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="images/2e591051-01c9-40c1-a0b1-f7839fbf73fe.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Nơi tôi chia sẻ sự hiểu biết và góc nhìn của tôi.</p>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-item active"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="categories.html" class="nav-item"><i class="fas fa-list"></i> CATEGORIES</a></li>
+                    <li><a href="tags.html" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
+                    <li><a href="archives.html" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
+                    <li><a href="about.html" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
+                </ul>
+            </nav>
+
+            <div class="social-links">
+                <a href="#" class="social-link" id="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
+                <a href="https://github.com/truongduc0110" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:example@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="rss.xml" class="social-link" title="RSS Feed"><i class="fas fa-rss"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <a href="index.html" class="header-link">Home</a>
+                    <div class="breadcrumbs">
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="current-page">Latest Posts - Page 2</span>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <section class="posts">
+                    <div class="section-header">
+                        <h2 class="section-title">Latest Articles</h2>
+                        <a href="archives.html" class="view-all">View All</a>
+                    </div>
+                    
+                    <!-- Post 5 -->
+                    <article class="post">
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/gan-networks.html">Generative Adversarial Networks Explained</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 15, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/deep-learning.html">Deep Learning</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 12 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>GANs have transformed the field of generative AI. This article explores how they work, common challenges in training them, and their applications in image synthesis, style transfer, and more...</p>
+                            </div>
+                            <a href="posts/gan-networks.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Post 6 -->
+                    <article class="post">
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/reinforcement-learning.html">Reinforcement Learning: From Basics to Advanced</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 10, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/machine-learning.html">Machine Learning</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 9 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Reinforcement learning is a unique paradigm in machine learning where agents learn to make decisions by taking actions in an environment to maximize cumulative rewards. This post covers key algorithms like Q-learning and policy gradients...</p>
+                            </div>
+                            <a href="posts/reinforcement-learning.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Post 7 -->
+                    <article class="post">
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/transformers-nlp.html">Transformers: The Architecture Revolutionizing NLP</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Jan 5, 2025</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/nlp.html">Natural Language Processing</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 11 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>The transformer architecture has fundamentally changed how we approach natural language processing. In this post, we'll explore the mechanics of self-attention, the key innovation that makes transformers so powerful...</p>
+                            </div>
+                            <a href="posts/transformers-nlp.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Post 8 -->
+                    <article class="post">
+                        <div class="post-details">
+                            <h2 class="post-title"><a href="posts/object-detection.html">Object Detection: YOLO and Beyond</a></h2>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> Dec 28, 2024</span>
+                                <span class="post-category"><i class="fas fa-folder"></i> <a href="categories/computer-vision.html">Computer Vision</a></span>
+                                <span class="post-read-time"><i class="far fa-clock"></i> 8 min read</span>
+                            </div>
+                            <div class="post-content">
+                                <p>Object detection is a fundamental task in computer vision. This post examines the evolution from traditional approaches to modern deep learning methods, with a special focus on YOLO (You Only Look Once) and its variants...</p>
+                            </div>
+                            <a href="posts/object-detection.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- Pagination -->
+                    <nav class="pagination" aria-label="Pagination">
+                        <ul class="pagination-list">
+                            <li class="pagination-item">
+                                <a href="index.html" class="pagination-link pagination-prev">
+                                    <i class="fas fa-chevron-left"></i> Prev
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="index.html" class="pagination-link">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page2.html" class="pagination-link active">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page3.html" class="pagination-link">3</a>
+                            </li>
+                            <li class="pagination-item">
+                                <span class="pagination-ellipsis">...</span>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page8.html" class="pagination-link">8</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page3.html" class="pagination-link pagination-next">
+                                    Next <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+
+                <aside class="sidebar-right">
+                    <div class="widget">
+                        <h3 class="widget-title">Recently Updated</h3>
+                        <ul class="widget-list">
+                            <li><a href="posts/overfitting.html">Overfitting</a>
+                                <span class="widget-date">Feb 2, 2025</span>
+                            </li>
+                            <li><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a>
+                                <span class="widget-date">Jan 31, 2025</span>
+                            </li>
+                            <li><a href="posts/nam-2024.html">Năm 2024 Để Lại Cho Mình Điều Gì ?</a>
+                                <span class="widget-date">Jan 26, 2025</span>
+                            </li>
+                            <li><a href="posts/neural-networks.html">A Recipe for Training Neural Networks</a>
+                                <span class="widget-date">Jan 20, 2025</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="widget-list">
+                            <li><a href="categories/machine-learning.html">Machine Learning</a> <span>(12)</span></li>
+                            <li><a href="categories/deep-learning.html">Deep Learning</a> <span>(8)</span></li>
+                            <li><a href="categories/nlp.html">Natural Language Processing</a> <span>(5)</span></li>
+                            <li><a href="categories/computer-vision.html">Computer Vision</a> <span>(4)</span></li>
+                            <li><a href="categories/tan-man.html">Tản Mạn</a> <span>(3)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">Tags</h3>
+                        <div class="tag-cloud">
+                            <a href="tags/machine-learning.html" class="tag-link tag-size-large">Machine Learning</a>
+                            <a href="tags/deep-learning.html" class="tag-link tag-size-medium">Deep Learning</a>
+                            <a href="tags/neural-networks.html" class="tag-link tag-size-medium">Neural Networks</a>
+                            <a href="tags/python.html" class="tag-link tag-size-large">Python</a>
+                            <a href="tags/overfitting.html" class="tag-link tag-size-small">Overfitting</a>
+                            <a href="tags/regression.html" class="tag-link tag-size-small">Regression</a>
+                            <a href="tags/nlp.html" class="tag-link tag-size-medium">NLP</a>
+                            <a href="tags/computer-vision.html" class="tag-link tag-size-small">Computer Vision</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <footer class="footer">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 My Blog. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

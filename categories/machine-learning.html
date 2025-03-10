@@ -11,102 +11,160 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .breadcrumb {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 4px;
+        .category-header {
             margin-bottom: 30px;
         }
-        .breadcrumb a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .breadcrumb span {
-            color: #666;
-        }
+        
         .category-title {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        .category-title i {
-            font-size: 24px;
-            margin-right: 10px;
+            font-size: 30px;
+            margin-bottom: 10px;
             color: #333;
+            font-weight: 700;
         }
-        .category-title span {
-            font-size: 24px;
-            color: #333;
+        
+        .category-posts {
+            margin-bottom: 40px;
         }
-        .post-count {
-            color: #666;
-            font-size: 14px;
-            margin-left: 10px;
-        }
-        .blog-list {
+        
+        .post-list {
             list-style: none;
             padding: 0;
         }
-        .blog-item {
-            padding: 20px 0;
-            border-bottom: 1px solid #eee;
+        
+        .post-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: baseline;
         }
-        .blog-item:last-child {
-            border-bottom: none;
+        
+        .post-item::before {
+            content: "•";
+            color: #1e88e5;
+            font-size: 18px;
+            margin-right: 10px;
+            font-weight: bold;
         }
-        .blog-date {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        .blog-title {
+        
+        .post-title {
+            font-size: 16px;
             color: #0066cc;
             text-decoration: none;
-            font-size: 18px;
             font-weight: 500;
-            margin: 0;
+            flex-grow: 1;
+            margin-right: 15px;
         }
-        .blog-title:hover {
+        
+        .post-title:hover {
             text-decoration: underline;
+        }
+        
+        .post-date {
+            color: #777;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .dotted-line {
+            flex-grow: 1;
+            height: 1px;
+            border-top: 1px dotted #ccc;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="breadcrumb">
-            <a href="../index.html">Home</a> › 
-            <a href="../categories.html">Categories</a> › 
-            <span>Machine Learning</span>
-        </div>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="../images/2e591051-01c9-40c1-a0b1-f7839fbf73fe.jpg" alt="Profile Picture" class="profile-img">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Không có gì</p>
+            </div>
 
-        <div class="category-title">
-            <i class="fas fa-brain"></i>
-            <span>Machine Learning</span>
-            <span class="post-count">(5)</span>
-        </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html" class="nav-item"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="../categories.html" class="nav-item active"><i class="fas fa-list"></i> CATEGORIES</a></li>
+                    <li><a href="../tags.html" class="nav-item"><i class="fas fa-tags"></i> TAGS</a></li>
+                    <li><a href="../archives.html" class="nav-item"><i class="fas fa-archive"></i> ARCHIVES</a></li>
+                    <li><a href="../about.html" class="nav-item"><i class="fas fa-user"></i> ABOUT</a></li>
+                </ul>
+            </nav>
 
-        <ul class="blog-list">
-            <li class="blog-item">
-                <div class="blog-date">Feb 2, 2025</div>
-                <a href="../posts/overfitting.html" class="blog-title">Overfitting</a>
-            </li>
-            <li class="blog-item">
-                <div class="blog-date">Jan 31, 2025</div>
-                <a href="../posts/hoi-quy-tuyen-tinh.html" class="blog-title">Hồi Quy Tuyến Tính</a>
-            </li>
-            <li class="blog-item">
-                <div class="blog-date">Jan 20, 2025</div>
-                <a href="../posts/neural-networks.html" class="blog-title">A Recipe for Training Neural Networks</a>
-            </li>
-            <li class="blog-item">
-                <div class="blog-date">Jan 15, 2025</div>
-                <a href="../posts/svm.html" class="blog-title">Introduction to Support Vector Machines</a>
-            </li>
-            <li class="blog-item">
-                <div class="blog-date">Feb 15, 2025</div>
-                <a href="../posts/reinforcement-learning.html" class="blog-title">Introduction to Reinforcement Learning</a>
-            </li>
-        </ul>
+            <div class="social-links">
+                <a href="#" class="social-link" id="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
+                <a href="https://github.com/truongduc0110" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:example@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="../rss.xml" class="social-link" title="RSS Feed"><i class="fas fa-rss"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-left">
+                    <a href="../index.html" class="header-link">Home</a>
+                    <div class="breadcrumbs">
+                        <span class="breadcrumb-separator">/</span>
+                        <a href="../categories.html" class="header-link">Categories</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="current-page">Machine Learning</span>
+                    </div>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="category-container">
+                    <div class="category-header">
+                        <h1 class="category-title">Machine Learning</h1>
+                    </div>
+                    
+                    <div class="category-posts">
+                        <ul class="post-list">
+                            <li class="post-item">
+                                <a href="../posts/overfitting.html" class="post-title">Overfitting</a>
+                                <div class="dotted-line"></div>
+                                <span class="post-date">Feb 2, 2025</span>
+                            </li>
+                            <li class="post-item">
+                                <a href="../posts/hoi-quy-tuyen-tinh.html" class="post-title">Hồi Quy Tuyến Tính</a>
+                                <div class="dotted-line"></div>
+                                <span class="post-date">Jan 31, 2025</span>
+                            </li>
+                            <li class="post-item">
+                                <a href="../posts/neural-networks.html" class="post-title">A Recipe for Training Neural Networks</a>
+                                <div class="dotted-line"></div>
+                                <span class="post-date">Jan 20, 2025</span>
+                            </li>
+                            <li class="post-item">
+                                <a href="../posts/svm.html" class="post-title">Introduction to Support Vector Machines</a>
+                                <div class="dotted-line"></div>
+                                <span class="post-date">Jan 15, 2025</span>
+                            </li>
+                            <li class="post-item">
+                                <a href="../posts/reinforcement-learning.html" class="post-title">Introduction to Reinforcement Learning</a>
+                                <div class="dotted-line"></div>
+                                <span class="post-date">Feb 15, 2025</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 My Blog. All rights reserved.</p>
+                </div>
+            </footer>
+        </main>
     </div>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>

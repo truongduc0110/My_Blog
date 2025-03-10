@@ -17,7 +17,7 @@
             <div class="profile">
                 <img src="images/2e591051-01c9-40c1-a0b1-f7839fbf73fe.jpg" alt="Profile Picture" class="profile-img">
                 <h1 class="blog-title">My Blog</h1>
-                <p class="blog-subtitle">Không có gì</p>
+                <p class="blog-subtitle">Nơi tôi chia sẻ sự hiểu biết và góc nhìn của tôi.</p>
             </div>
 
             <nav class="main-nav">
@@ -33,9 +33,10 @@
             <div class="social-links">
                 <a href="#" class="social-link" id="dark-mode-toggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></a>
                 <a href="https://github.com/truongduc0110" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="mailto:example@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="rss.xml" class="social-link" title="RSS Feed"><i class="fas fa-rss"></i></a>
+                <a href="https://www.linkedin.com/in/%C4%91%E1%BB%A9c-tr%C6%B0%C6%A1ng-xu%C3%A2n-04a05731a/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ducdieuda0110@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://zalo.me/0347779694" target="_blank" class="social-link" title="Zalo"><i class="fas fa-comment"></i></a>
+                
             </div>
         </aside>
 
@@ -64,11 +65,6 @@
                     
                     <!-- Post 1 -->
                     <article class="post">
-                        <div class="post-thumbnail">
-                            <a href="posts/overfitting.html">
-                                <img src="images/post-thumb-1.jpg" alt="Overfitting" class="post-thumb-img">
-                            </a>
-                        </div>
                         <div class="post-details">
                             <h2 class="post-title"><a href="posts/overfitting.html">Overfitting</a></h2>
                             <div class="post-meta">
@@ -85,11 +81,6 @@
 
                     <!-- Post 2 -->
                     <article class="post">
-                        <div class="post-thumbnail">
-                            <a href="posts/hoi-quy-tuyen-tinh.html">
-                                <img src="images/post-thumb-2.jpg" alt="Hồi Quy Tuyến Tính" class="post-thumb-img">
-                            </a>
-                        </div>
                         <div class="post-details">
                             <h2 class="post-title"><a href="posts/hoi-quy-tuyen-tinh.html">Hồi Quy Tuyến Tính</a></h2>
                             <div class="post-meta">
@@ -106,11 +97,6 @@
 
                     <!-- Post 3 -->
                     <article class="post">
-                        <div class="post-thumbnail">
-                            <a href="posts/nam-2024.html">
-                                <img src="images/post-thumb-3.jpg" alt="Năm 2024" class="post-thumb-img">
-                            </a>
-                        </div>
                         <div class="post-details">
                             <h2 class="post-title"><a href="posts/nam-2024.html">Năm 2024 Để Lại Cho Mình Điều Gì ?</a></h2>
                             <div class="post-meta">
@@ -127,11 +113,6 @@
 
                     <!-- Post 4 -->
                     <article class="post">
-                        <div class="post-thumbnail">
-                            <a href="posts/neural-networks.html">
-                                <img src="images/post-thumb-4.jpg" alt="Neural Networks" class="post-thumb-img">
-                            </a>
-                        </div>
                         <div class="post-details">
                             <h2 class="post-title"><a href="posts/neural-networks.html">A Recipe for Training Neural Networks</a></h2>
                             <div class="post-meta">
@@ -145,6 +126,37 @@
                             <a href="posts/neural-networks.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
+                    
+                    <!-- Pagination -->
+                    <nav class="pagination" aria-label="Pagination">
+                        <ul class="pagination-list">
+                            <li class="pagination-item">
+                                <a href="#" class="pagination-link pagination-prev disabled">
+                                    <i class="fas fa-chevron-left"></i> Prev
+                                </a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="index.html" class="pagination-link active">1</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page2.html" class="pagination-link">2</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page3.html" class="pagination-link">3</a>
+                            </li>
+                            <li class="pagination-item">
+                                <span class="pagination-ellipsis">...</span>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page8.html" class="pagination-link">8</a>
+                            </li>
+                            <li class="pagination-item">
+                                <a href="page2.html" class="pagination-link pagination-next">
+                                    Next <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </section>
 
                 <aside class="sidebar-right">
@@ -202,35 +214,10 @@
                             <a href="#pytorch" class="tag">pytorch</a>
                         </div>
                     </div>
-
-                    <div class="widget">
-                        <h3 class="widget-title">Newsletter</h3>
-                        <div class="newsletter">
-                            <p>Subscribe to get notified about new posts and updates</p>
-                            <form class="newsletter-form">
-                                <input type="email" placeholder="Your email address" required>
-                                <button type="submit">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
                 </aside>
             </div>
 
             <footer class="footer">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3 class="footer-title">About</h3>
-                        <p class="footer-about">My Blog is a personal website focused on Machine Learning, Deep Learning, and AI topics. I share my knowledge, experiences, and insights about the latest technologies.</p>
-                    </div>
-                    <div class="footer-section">
-                        <h3 class="footer-title">Contact</h3>
-                        <ul class="contact-list">
-                            <li><i class="fas fa-envelope"></i> <a href="mailto:example@example.com">example@example.com</a></li>
-                            <li><i class="fab fa-github"></i> <a href="https://github.com/truongduc0110" target="_blank">truongduc0110</a></li>
-                            <li><i class="fab fa-linkedin"></i> <a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="footer-bottom">
                     <p>&copy; 2025 My Blog. All rights reserved.</p>
                 </div>

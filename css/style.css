@@ -151,27 +151,39 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
 }
 
 .header-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--primary-color);
+    color: #0066cc;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .breadcrumbs {
-    color: #64748b;
-    margin: 0.5rem 0;
-    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.breadcrumb-separator {
+    color: #666;
+    margin: 0 10px;
+}
+
+.current-page {
+    color: #666;
 }
 
 .breadcrumbs a {
@@ -185,42 +197,31 @@ body {
     text-decoration: underline;
 }
 
-.breadcrumbs span {
-    margin: 0 0.5rem;
-}
-
 .search-box {
     display: flex;
     align-items: center;
-    background-color: var(--hover-color);
-    border-radius: var(--radius);
-    padding: 0.75rem 1rem;
 }
 
 .search-input {
-    border: none;
-    background: none;
-    padding: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text-color);
-    width: 200px;
-}
-
-.search-input:focus {
-    outline: none;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 14px;
 }
 
 .search-button {
-    background: none;
+    background: #0066cc;
+    color: white;
     border: none;
-    color: #64748b;
+    border-radius: 4px;
+    padding: 8px 12px;
     cursor: pointer;
-    padding: 0.5rem;
-    transition: var(--transition);
+    font-size: 14px;
 }
 
 .search-button:hover {
-    color: var(--primary-color);
+    background: #004c99;
 }
 
 /* Content Layout */
@@ -228,11 +229,17 @@ body {
     display: grid;
     grid-template-columns: 1fr 300px;
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Posts Section */
 .posts {
     flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-header {
@@ -257,9 +264,7 @@ body {
 
 /* Post Card */
 .post {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 1.5rem;
+    display: block;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
@@ -269,23 +274,6 @@ body {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
-}
-
-.post-thumbnail {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius);
-}
-
-.post-thumb-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.post-thumbnail:hover .post-thumb-img {
-    transform: scale(1.05);
 }
 
 .post-title {
@@ -329,6 +317,7 @@ body {
 .post-content {
     margin-bottom: 1rem;
     color: #64748b;
+    text-align: left;
 }
 
 .read-more {
@@ -544,6 +533,75 @@ body {
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
     color: #64748b;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.pagination-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-item {
+    margin: 0 0.25rem;
+}
+
+.pagination-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.pagination-link:hover {
+    background-color: var(--hover-color);
+}
+
+.pagination-link.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.pagination-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--text-color);
+}
+
+.pagination-prev,
+.pagination-next {
+    font-weight: 500;
+}
+
+.pagination-prev i,
+.pagination-next i {
+    font-size: 0.75rem;
 }
 
 /* Dark Mode Styles */

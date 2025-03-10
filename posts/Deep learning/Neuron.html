@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuron (Nơron) trong Deep Learning - My Blog</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .post-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .post-meta span {
+            margin: 0 10px;
+        }
+        .post-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .post-content h2 {
+            font-size: 24px;
+            margin: 40px 0 20px;
+            color: #222;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .post-content code {
+            background: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .post-content pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .post-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .post-nav a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post-nav a:hover {
+            text-decoration: underline;
+        }
+        .math {
+            font-family: 'Computer Modern', serif;
+            font-style: italic;
+        }
+        .neuron-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .neuron-figure img {
+            max-width: 90%;
+        }
+        .neuron-figure figcaption {
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <div class="breadcrumb">
+            <a href="../../index.html">Home</a> › 
+            <a href="../../categories.html">Categories</a> › 
+            <a href="../../categories/deep-learning.html">Deep Learning</a> ›
+            <span>Neuron trong Deep Learning</span>
+        </div>
+
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">Neuron trong Deep Learning</h1>
+                <div class="post-meta">
+                    <span><i class="fas fa-calendar"></i> Mar 10, 2025</span>
+                    <span><i class="fas fa-folder"></i> <a href="../../categories/deep-learning.html">Deep Learning</a></span>
+                    <span><i class="fas fa-tags"></i> 
+                        <a href="../../tags.html#neuron">neuron</a>,
+                        <a href="../../tags.html#neural-network">neural network</a>,
+                        <a href="../../tags.html#deep-learning">deep learning</a>
+                    </span>
+                </div>
+            </header>
+
+            <div class="post-content">
+                <p>
+                    Neuron (nơron) là đơn vị cơ bản và nền tảng của các mạng neural trong deep learning. Để hiểu được cách hoạt động của các mô hình deep learning phức tạp, chúng ta cần hiểu rõ về cấu trúc và nguyên lý hoạt động của neuron.
+                </p>
+
+                <div class="neuron-figure">
+                    <img src="../../images/neuron-structure.png" alt="Cấu trúc của một neuron nhân tạo">
+                    <figcaption>Hình 1: Cấu trúc của một neuron nhân tạo</figcaption>
+                </div>
+
+                <h2>1. Neuron sinh học và Neuron nhân tạo</h2>
+                <p>
+                    Neuron nhân tạo trong deep learning lấy cảm hứng từ cách hoạt động của neuron sinh học trong não người. Trong não người, một neuron nhận thông tin từ các neuron khác thông qua các dendrite, xử lý thông tin đó tại thân tế bào, và truyền tín hiệu đi tiếp thông qua axon.
+                </p>
+                <p>
+                    Tương tự, một neuron nhân tạo nhận vào nhiều đầu vào (inputs), tính toán một giá trị đầu ra (output) thông qua hàm kích hoạt (activation function) và truyền giá trị đó đến các neuron tiếp theo trong mạng.
+                </p>
+
+                <h2>2. Cấu trúc của một Neuron</h2>
+                <p>
+                    Một neuron nhân tạo điển hình bao gồm ba thành phần chính:
+                </p>
+                <ul>
+                    <li><strong>Weights (Trọng số)</strong>: Mỗi đầu vào của neuron được nhân với một trọng số tương ứng, thể hiện mức độ quan trọng của đầu vào đó.</li>
+                    <li><strong>Bias (Độ chệch)</strong>: Một tham số bổ sung cho phép điều chỉnh ngưỡng kích hoạt của neuron.</li>
+                    <li><strong>Activation Function (Hàm kích hoạt)</strong>: Một hàm phi tuyến áp dụng lên tổng có trọng số của các đầu vào và bias.</li>
+                </ul>
+                
+                <h2>3. Hoạt động của Neuron</h2>
+                <p>
+                    Hoạt động của một neuron có thể được biểu diễn bằng công thức toán học như sau:
+                </p>
+                <pre><code>output = activation_function(Σ(weight_i * input_i) + bias)
+
+Trong đó:
+- input_i: Các đầu vào của neuron
+- weight_i: Trọng số tương ứng với mỗi đầu vào
+- bias: Độ chệch
+- activation_function: Hàm kích hoạt</code></pre>
+
+                <div class="neuron-figure">
+                    <img src="../../images/neuron-computation.png" alt="Quá trình tính toán trong neuron">
+                    <figcaption>Hình 2: Quá trình tính toán trong neuron</figcaption>
+                </div>
+
+                <h2>4. Các hàm kích hoạt phổ biến</h2>
+                <p>
+                    Hàm kích hoạt là yếu tố quan trọng quyết định khả năng của neuron trong việc mô hình hóa các mối quan hệ phi tuyến tính. Một số hàm kích hoạt phổ biến bao gồm:
+                </p>
+
+                <h3>4.1. Sigmoid</h3>
+                <p>
+                    Hàm sigmoid biến đổi đầu vào thành một giá trị nằm trong khoảng (0, 1):
+                </p>
+                <pre><code>sigmoid(x) = 1 / (1 + e^(-x))</code></pre>
+                <p>
+                    Hàm sigmoid từng phổ biến trong quá khứ, nhưng hiện nay ít được sử dụng do gặp vấn đề về gradient vanishing và không có giá trị trung tâm tại 0.
+                </p>
+
+                <h3>4.2. Tanh (Hyperbolic Tangent)</h3>
+                <p>
+                    Hàm tanh biến đổi đầu vào thành một giá trị nằm trong khoảng (-1, 1):
+                </p>
+                <pre><code>tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))</code></pre>
+                <p>
+                    Hàm tanh có đầu ra có trung bình bằng 0, giúp ổn định quá trình huấn luyện tốt hơn sigmoid.
+                </p>
+
+                <h3>4.3. ReLU (Rectified Linear Unit)</h3>
+                <p>
+                    Hàm ReLU là một trong những hàm kích hoạt phổ biến nhất hiện nay:
+                </p>
+                <pre><code>ReLU(x) = max(0, x)</code></pre>
+                <p>
+                    ReLU có ưu điểm là tính toán đơn giản, không bão hòa (non-saturating), và giúp giảm vấn đề gradient vanishing. Tuy nhiên, ReLU có nhược điểm là "dying ReLU problem" khi neuron có thể "chết" nếu gradient bằng 0.
+                </p>
+
+                <h3>4.4. Leaky ReLU</h3>
+                <p>
+                    Leaky ReLU là một biến thể của ReLU nhằm khắc phục vấn đề "dying ReLU":
+                </p>
+                <pre><code>Leaky ReLU(x) = max(αx, x), với α là một số nhỏ (thường là 0.01)</code></pre>
+
+                <h3>4.5. Softmax</h3>
+                <p>
+                    Softmax thường được sử dụng ở lớp output cho các bài toán phân loại nhiều lớp:
+                </p>
+                <pre><code>softmax(x_i) = e^(x_i) / Σ(e^(x_j))</code></pre>
+                <p>
+                    Hàm softmax chuyển đổi một vector các số thực thành một phân phối xác suất.
+                </p>
+
+                <h2>5. Triển khai Neuron với Python</h2>
+                <p>
+                    Dưới đây là một ví dụ đơn giản về cách triển khai một neuron đơn lẻ bằng Python:
+                </p>
+                <pre><code>import numpy as np
+
+class Neuron:
+    def __init__(self, weights, bias):
+        self.weights = weights
+        self.bias = bias
+        
+    def sigmoid(self, x):
+        return 1 / (1 + np.exp(-x))
+    
+    def forward(self, inputs):
+        # Tính tổng có trọng số
+        total = np.dot(self.weights, inputs) + self.bias
+        # Áp dụng hàm kích hoạt
+        return self.sigmoid(total)
+
+# Ví dụ sử dụng
+weights = np.array([0.5, -0.5, 0.3])  # 3 trọng số cho 3 đầu vào
+bias = 0.1
+neuron = Neuron(weights, bias)
+
+inputs = np.array([0.2, 0.3, 0.5])  # 3 đầu vào
+output = neuron.forward(inputs)
+
+print(f"Đầu ra của neuron: {output}")</code></pre>
+
+                <h2>6. Neuron trong các Mạng Neural</h2>
+                <p>
+                    Trong các mạng neural, neuron được tổ chức thành các lớp:
+                </p>
+                <ul>
+                    <li><strong>Input Layer (Lớp đầu vào)</strong>: Tiếp nhận dữ liệu đầu vào</li>
+                    <li><strong>Hidden Layers (Các lớp ẩn)</strong>: Xử lý thông tin trung gian</li>
+                    <li><strong>Output Layer (Lớp đầu ra)</strong>: Đưa ra kết quả cuối cùng</li>
+                </ul>
+                <p>
+                    Khi kết hợp nhiều neuron thành một mạng lưới, chúng có thể học những mối quan hệ phức tạp trong dữ liệu. Đây chính là nền tảng của deep learning.
+                </p>
+
+                <h2>7. Kết luận</h2>
+                <p>
+                    Neuron là thành phần cơ bản của các mạng neural, đóng vai trò then chốt trong sự thành công của deep learning. Hiểu rõ về cấu trúc và cách hoạt động của neuron là bước đầu tiên để hiểu và triển khai các mô hình deep learning phức tạp.
+                </p>
+                <p>
+                    Trong các bài viết tiếp theo, chúng ta sẽ tìm hiểu cách kết hợp nhiều neuron để tạo thành các mạng neural và cách huấn luyện chúng thông qua thuật toán backpropagation.
+                </p>
+            </div>
+
+            <div class="post-nav">
+                <div class="post-nav-prev">
+                    <a href="../Deep learning/cnn.html">&larr; Convolutional Neural Networks</a>
+                </div>
+                <div class="post-nav-next">
+                    <a href="../Deep learning/rnn.html">Recurrent Neural Networks &rarr;</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script src="../../js/script.js"></script>
+</body>
+</html>
